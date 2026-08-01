@@ -27,4 +27,12 @@ Run `sync.bat` or `./sync.sh` from the repository root when you want the documen
 
 **Understand:** pushes to `main` trigger `.github/workflows/deploy.yml`; GitHub Actions runs `npm ci`, builds `public/` with Quartz, and deploys it to GitHub Pages at `Ashby.wiki` after the custom domain is configured.
 
+## First GitHub Pages and domain setup
+
+1. In the repository's **Settings → Pages**, choose **Source: GitHub Actions** and save.
+2. In Porkbun DNS, add four apex `A` records for `Ashby.wiki`: `185.199.108.153`, `185.199.108.154`, `185.199.108.155`, and `185.199.108.156`.
+3. Add a `CNAME` record for `www` pointing to `ashbycollado.github.io`.
+4. In GitHub Pages, set the custom domain to `Ashby.wiki`, wait for DNS validation, and enable HTTPS.
+5. Push a commit (or use **Run workflow**) and verify the deployment URL and both `https://Ashby.wiki` and `https://www.Ashby.wiki`.
+
 **Undo:** for note or configuration mistakes, use `git revert <commit>` and sync the revert. For an uncommitted mistake, restore only the named file with `git restore -- <path>`. DNS and GitHub Pages settings must be restored manually from the pre-change DNS snapshot; the initial repository reset is intentionally irreversible because no backup was requested.
