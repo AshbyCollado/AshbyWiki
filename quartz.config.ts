@@ -8,16 +8,26 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
+    pageTitle: "Ashby Wiki",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
-    analytics: {
-      provider: "plausible",
-    },
+    analytics: null,
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    baseUrl: "Ashby.wiki",
+    ignorePatterns: [
+      ".obsidian",
+      "_inbox",
+      "_drafts",
+      "_unpublished",
+      "_templates",
+      "**/*.excalidraw.md",
+      "**/.obsidian/**",
+      "**/_inbox/**",
+      "**/_drafts/**",
+      "**/_unpublished/**",
+      "**/_templates/**",
+    ],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
@@ -87,6 +97,7 @@ const config: QuartzConfig = {
       Plugin.Assets(),
       Plugin.Static(),
       Plugin.Favicon(),
+      Plugin.CNAME(),
       Plugin.NotFoundPage(),
       // Comment out CustomOgImages to speed up build time
       Plugin.CustomOgImages(),

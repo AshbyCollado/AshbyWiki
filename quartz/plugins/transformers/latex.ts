@@ -1,13 +1,14 @@
 import remarkMath from "remark-math"
 import rehypeKatex from "rehype-katex"
 import rehypeMathjax from "rehype-mathjax/svg"
-//@ts-ignore
-import rehypeTypst from "@myriaddreamin/rehype-typst"
+import { createRequire } from "node:module"
 import { QuartzTransformerPlugin } from "../types"
 import { KatexOptions } from "katex"
 import { Options as MathjaxOptions } from "rehype-mathjax/svg"
 //@ts-ignore
-import { Options as TypstOptions } from "@myriaddreamin/rehype-typst"
+import type { Options as TypstOptions } from "@myriaddreamin/rehype-typst"
+
+const require = createRequire(import.meta.url)
 
 interface Options {
   renderEngine: "katex" | "mathjax" | "typst"
@@ -37,6 +38,10 @@ export const Latex: QuartzTransformerPlugin<Partial<Options>> = (opts) => {
           return [[rehypeKatex, { output: "html", macros, ...(opts?.katexOptions ?? {}) }]]
         }
         case "typst": {
+          // Keep the optional native Typst binding out of normal KaTeX builds.
+          // On Windows it requires the MSVC runtime; load it only when selected.
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+          const rehypeTypst = require("@myriaddreamin/rehype-typst")
           return [[rehypeTypst, opts?.typstOptions ?? {}]]
         }
         default:
