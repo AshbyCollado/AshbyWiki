@@ -52,6 +52,10 @@ if exist "%REPO_DIR%\package-lock.json" (
   pushd "%REPO_DIR%"
   call npm ci
   set "RC=!ERRORLEVEL!"
+  if "!RC!"=="0" if exist "scripts\install-obsidian-plugins.ps1" (
+    powershell -NoProfile -ExecutionPolicy Bypass -File "scripts\install-obsidian-plugins.ps1" -VaultPath "content"
+    set "RC=!ERRORLEVEL!"
+  )
   popd
   exit /b !RC!
 )
@@ -95,7 +99,7 @@ if errorlevel 1 (
 )
 where git >nul 2>&1 || winget install --id Git.Git --exact --accept-source-agreements --accept-package-agreements
 call :is_node22
-if errorlevel 1 winget install --id OpenJS.NodeJS.LTS --exact --accept-source-agreements --accept-package-agreements
+if errorlevel 1 winget install --id OpenJS.NodeJS.22 --exact --accept-source-agreements --accept-package-agreements
 where gh >nul 2>&1 || winget install --id GitHub.cli --exact --accept-source-agreements --accept-package-agreements
 set "OBSIDIAN_OK=0"
 if defined LOCALAPPDATA if exist "%LOCALAPPDATA%\Obsidian\Obsidian.exe" set "OBSIDIAN_OK=1"

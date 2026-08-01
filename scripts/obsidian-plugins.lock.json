@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "generatedFor": "Ashby Wiki",
+  "plugins": [
+    {
+      "id": "editing-toolbar",
+      "name": "Editing Toolbar",
+      "version": "4.0.11",
+      "repository": "https://github.com/PKM-er/obsidian-editing-toolbar",
+      "releaseUrl": "https://github.com/PKM-er/obsidian-editing-toolbar/releases/tag/4.0.11",
+      "assets": [
+        {
+          "name": "main.js",
+          "url": "https://github.com/PKM-er/obsidian-editing-toolbar/releases/download/4.0.11/main.js",
+          "sha256": "c6885fe737aa740d2e8fd382565b4a8967bb044007c69ff57b1747ab94d94e6f"
+        },
+        {
+          "name": "manifest.json",
+          "url": "https://github.com/PKM-er/obsidian-editing-toolbar/releases/download/4.0.11/manifest.json",
+          "sha256": "75e7ca79dfff50841e938e688959cda1339416de98409d038aa5a3af345b4933"
+        },
+        {
+          "name": "styles.css",
+          "url": "https://github.com/PKM-er/obsidian-editing-toolbar/releases/download/4.0.11/styles.css",
+          "sha256": "851d48e80012bb47ee26f4788a8f8bb74d22bd66bb029961a133157ec56df0b3"
+        }
+      ]
+    },
+    {
+      "id": "obsidian-excalidraw-plugin",
+      "name": "Excalidraw",
+      "version": "2.25.3",
+      "repository": "https://github.com/zsviczian/obsidian-excalidraw-plugin",
+      "releaseUrl": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.25.3",
+      "assets": [
+        {
+          "name": "main.js",
+          "url": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/download/2.25.3/main.js",
+          "sha256": "684cf6da43f6e3b2a7646d5a50d14f7a43eb5d859d073dc6a375c4a1b0990dd6"
+        },
+        {
+          "name": "manifest.json",
+          "url": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/download/2.25.3/manifest.json",
+          "sha256": "43f18bc17c5c3f76af1a9a4191daa1c3566e2875aa4430561d57b7828785282e"
+        },
+        {
+          "name": "styles.css",
+          "url": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/download/2.25.3/styles.css",
+          "sha256": "236a113fee3581ec59856af22c6cecf79faf3521afae66227a40f6ff6cd98969"
+        }
+      ]
+    }
+  ]
+}

@@ -5,7 +5,16 @@ public
 prof
 tsconfig.tsbuildinfo
 .obsidian
+**/.obsidian/*
+!content/.obsidian/
+!content/.obsidian/community-plugins.json
+!content/.obsidian/app.json
+!content/.obsidian/appearance.json
+content/.obsidian/plugins/
+content/.obsidian/workspace*
+content/.obsidian/cache/
 .quartz-cache
 private/
+memory.md
 .replit
 replit.nix

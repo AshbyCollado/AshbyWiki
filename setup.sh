@@ -67,15 +67,15 @@ install_linux() {
   case "$pm" in
     apt)
       sudo_cmd apt-get update
-      sudo_cmd apt-get install -y git nodejs npm gh
+      sudo_cmd apt-get install -y git nodejs npm gh python3
       if command_exists snap; then sudo_cmd snap install obsidian --classic || true
       else echo "Install snapd, then run: sudo snap install obsidian --classic" >&2; fi ;;
     dnf)
-      sudo_cmd dnf install -y git nodejs npm gh
+      sudo_cmd dnf install -y git nodejs npm gh python3
       if command_exists snap; then sudo_cmd snap install obsidian --classic || true
       else echo "Install snapd, then run: sudo snap install obsidian --classic" >&2; fi ;;
     pacman)
-      sudo_cmd pacman -Sy --needed --noconfirm git nodejs npm github-cli
+      sudo_cmd pacman -Sy --needed --noconfirm git nodejs npm github-cli python
       if command_exists snap; then sudo_cmd snap install obsidian --classic || true
       else echo "Install Obsidian through your distro package manager: https://obsidian.md/download" >&2; fi ;;
   esac
@@ -124,7 +124,7 @@ else
 fi
 
 if [[ -f "$REPO_DIR/package-lock.json" ]]; then
-  (cd "$REPO_DIR" && npm ci)
+  (cd "$REPO_DIR" && npm ci && bash scripts/install-obsidian-plugins.sh content)
 elif [[ -f "$REPO_DIR/package.json" ]]; then
   echo "No package-lock.json in $REPO_DIR; refusing npm install. Create a lockfile, then rerun." >&2
   exit 1
